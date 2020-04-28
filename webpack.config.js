@@ -2,7 +2,7 @@ const HtmlWebpackPlugins = require('html-webpack-plugin')
 
 module.exports = {
   output: {
-    filename: 'app.bundle.js',
+    filename: 'app.bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugins({
@@ -26,4 +26,4 @@ module.exports = {
       }
     ]
   }
-};
+}
