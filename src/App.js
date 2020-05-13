@@ -5,6 +5,7 @@ import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 import { Logo } from "./components/Logo";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Home } from "./pages/Home";
+import { Detail } from "./pages/Detail";
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
@@ -14,14 +15,11 @@ export const App = () => {
     <>
       <GlobalStyle />
       <Logo />
-      {detailId ? (
-        <PhotoCardWithQuery id={detailId} />
-      ) : (
-        <Router>
-          <Home path="/" />
-          <Home path="/pet/:categoryId" />
-        </Router>
-      )}
+      <Router>
+        <Home path="/" />
+        <Home path="/pet/:categoryId" />
+        <Detail path="/detail/:detailId" />
+      </Router>
     </>
   );
 };
