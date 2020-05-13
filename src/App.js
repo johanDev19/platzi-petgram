@@ -6,6 +6,7 @@ import { Logo } from "./components/Logo";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Home } from "./pages/Home";
 import { Detail } from "./pages/Detail";
+import { NavBar } from "./components/NavBar";
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search);
@@ -20,6 +21,7 @@ export const App = () => {
         <Home path="/pet/:categoryId" />
         <Detail path="/detail/:detailId" />
       </Router>
+      <NavBar />
     </>
   );
 };
