@@ -1,3 +1,17 @@
-import React from 'react'
+import React, { Fragment } from "react";
 
-export const NotRegisterUser = () => <h1>Pagina de usuario no registrado</h1>
+import Context from "./../Context";
+import { UserForm } from "./../components/UserForm";
+
+export const NotRegisterUser = ({ children }) => (
+  <Context.Consumer>
+    {({ activateAuth }) => {
+      return (
+        <Fragment>
+          <UserForm onSubmit={activateAuth} title="Registrarse" />
+          <UserForm onSubmit={activateAuth} title="Iniciar sesión" />
+        </Fragment>
+      );
+    }}
+  </Context.Consumer>
+);

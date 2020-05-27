@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./App";
-import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import ApolloClient from "apollo-boost";
+
+import { App } from "./App";
 import Context from "./Context";
 
 const client = new ApolloClient({

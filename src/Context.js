@@ -16,5 +16,5 @@ const Provider = ({ children }) => {
 };
 export default {
   Provider,
-  Consumer: Context.Consumer
+  Consumer: Context.Consumer,
 };
