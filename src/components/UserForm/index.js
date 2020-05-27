@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
 import { useInputValue } from "./../../hooks/useInputValue";
-import { Form, Input, Button, Title } from "./styles";
+import { Form, Input, Button, Title, Error } from "./styles";
 
-export const UserForm = ({ onSubmit, title }) => {
+export const UserForm = ({ disabled, onSubmit, title, error }) => {
   const email = useInputValue("");
   const password = useInputValue("");
 
@@ -18,17 +18,19 @@ export const UserForm = ({ onSubmit, title }) => {
 
   return (
     <Fragment>
-      <Title>{title}</Title>
       <Form onSubmit={handleSubmit}>
-        <Input type="text" placeholder="Email" {...email} />
+        <Title>{title}</Title>
+        <Input disabled={disabled} type="text" placeholder="Email" {...email} />
         <Input
           type="text"
           placeholder="Password"
           type="password"
+          disabled={disabled}
           {...password}
         />
-        <Button>Iniciar sesión</Button>
+        <Button disabled={disabled}>Iniciar sesión</Button>
       </Form>
+      {error && <Error>{error}</Error>}
     </Fragment>
   );
 };
