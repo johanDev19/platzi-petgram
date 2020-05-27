@@ -11,13 +11,10 @@ import { Detail } from "./pages/Detail";
 import { User } from "./pages/User";
 import { NotRegisterUser } from "./pages/NotRegisterUser";
 import { Favs } from "./pages/Favs";
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: true });
-};
+import Context from "./Context";
 
 export const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search);
+  // const urlParams = new window.URLSearchParams(window.location.search);
 
   return (
     <>
@@ -29,7 +26,7 @@ export const App = () => {
         <Detail path="/detail/:detailId" />
       </Router>
 
-      <UserLogged>
+      <Context.Consumer>
           {({ isAuth }) =>
             isAuth ? (
               <Router>
@@ -43,7 +40,7 @@ export const App = () => {
               </Router>
             )
           }
-        </UserLogged>
+        </Context.Consumer>
       <NavBar />
     </>
   );
