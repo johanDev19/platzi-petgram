@@ -1,3 +1,10 @@
-import React from 'react'
+import React, { Fragment } from "react";
 
-export const Favs = () => <h1>Pagina de favs</h1>
+import { FavsWithQuery } from "./../container/GetFavorites";
+
+export const Favs = () => (
+  <Fragment>
+    <h1>Favs</h1>
+    <FavsWithQuery />
+  </Fragment>
+);
