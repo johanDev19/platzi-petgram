@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from 'react'
 
 import { Context } from './../Context'
 import { SubmitButton } from './../components/SubmitButton'
+
 export const User = () => {
   const { removeAuth } = useContext(Context)
 
