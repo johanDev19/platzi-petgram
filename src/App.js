@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, Suspense } from "react";
 import { Router, Redirect } from "@reach/router";
 
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
@@ -10,9 +10,10 @@ import { Home } from "./pages/Home";
 import { Detail } from "./pages/Detail";
 import { User } from "./pages/User";
 import { NotRegisterUser } from "./pages/NotRegisterUser";
-import { Favs } from "./pages/Favs";
 import { NotFound } from './pages/NotFound';
 import {Context} from "./Context";
+
+const Favs = React.lazy(() => import('./pages/Favs'))
 
 export const App = () => {
   // const urlParams = new window.URLSearchParams(window.location.search);
@@ -20,7 +21,7 @@ export const App = () => {
   
 
   return (
-    <>
+    <Suspense fallback={<div />}>
       <GlobalStyle />
       <Logo />
       <Router>
@@ -35,7 +36,7 @@ export const App = () => {
         <Favs path="/favs" />
         <User path="/user" />
       </ Router >  
-    <NavBar />
-    </>
+      <NavBar />
+    </Suspense>
   );
 };
